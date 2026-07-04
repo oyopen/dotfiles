@@ -38,6 +38,7 @@
     nodejs
     postgresql
     python3
+    ripgrep
     sheldon
     sqlite
     tree
