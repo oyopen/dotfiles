@@ -66,6 +66,13 @@
     recursive = true;
   };
 
+  # Karabiner-Elements のGUIが直接 karabiner.json を書き換えるため、
+  # Nixストアへの読み取り専用リンクではなく、リポジトリ内の実ファイルへの
+  # 書き込み可能なシンボリックリンクにする。
+  home.file.".config/karabiner/karabiner.json" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/ghq/github.com/oyopen/dotfiles/config/karabiner/karabiner.json";
+  };
+
   imports = [
     ./tmux.nix
   ];
