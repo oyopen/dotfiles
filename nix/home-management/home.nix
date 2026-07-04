@@ -43,6 +43,11 @@
     recursive = true;
   };
 
+  home.file.".config/nvim" = {
+    source = ../../config/nvim;
+    recursive = true;
+  };
+
   home.file.".zshrc" = {
     source = ../../config/zsh/.zshrc;
   };
