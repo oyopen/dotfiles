@@ -14,12 +14,17 @@
     enable = true;
     onActivation.cleanup = "uninstall";
     casks = [
-      "ghostty"
-      "raycast"
-      "postman"
-      "redis-insight"
-      "slack-cli"
       "arc"
+      "ghostty"
+      "karabiner-elements"
+      "postman"
+      "rancher"
+      "raycast"
+      "redis-insight"
+      "slack"
+      "slack-cli"
+      "soundsource"
+      "zed"
     ];
   };
 }
