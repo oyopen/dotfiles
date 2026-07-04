@@ -1,0 +1,7 @@
+[tools]
+claude = "latest"
+dotnet = "latest"
+go = "latest"
+java = "lts"
+node = "lts"
+python = "3.12"

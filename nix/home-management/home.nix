@@ -48,17 +48,22 @@
     recursive = true;
   };
 
-  home.file.".config/nvim" = {
-    source = ../../config/nvim;
-    recursive = true;
-  };
-
   home.file.".zshrc" = {
     source = ../../config/zsh/.zshrc;
   };
 
   home.file.".zprofile" = {
     source = ../../config/zsh/.zprofile;
+  };
+
+  home.file.".config/nvim" = {
+    source = ../../config/nvim;
+    recursive = true;
+  };
+
+  home.file.".config/mise" = {
+    source = ../../config/mise;
+    recursive = true;
   };
 
   imports = [
