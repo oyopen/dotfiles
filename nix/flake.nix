@@ -2,41 +2,39 @@
   description = "Home Manager configuration of hikaru";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-drawin = {
-        url = "github:nix-darwin/nix-darwin";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
-  outputs = { nixpkgs, home-manager, nix-darwin, ... }:
+  outputs = { nixpkgs, home-manager, nix-darwin, nix-homebrew, ... }:
     let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-
-      mkHome =
+      mkDarwin =
         username:
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home-management/home.nix ];
-          extraSpecialArgs = { inherit username; };
+        nix-darwin.lib.darwinSystem {
+          modules = [
+            ./nix-darwin/configuration.nix
+            home-manager.darwinModules.home-manager
+            nix-homebrew.darwinModules.nix-homebrew
+            ./nix-darwin/home-manager.nix
+            ./nix-darwin/homebrew.nix
+          ];
+          specialArgs = {
+            inherit username;
+          };
         };
     in
     {
-      homeConfigurations = {
-        # Private
-        "hikaru" = mkHome "hikaru";
-        # Work
-        "iwasa" = mkHome "iwasa";
+      darwinConfigurations = {
+        "oyopen-mbp" = mkDarwin "hikaru";
+        "work-mbp" = mkDarwin "iwasa";
       };
-
-      darwinConfigurations."oyopen-mbp" = nix-darwin.lib.darwinSystem {
-          modules = [ ./nix-darwin/configuration.nix ];
-        };
     };
 }
