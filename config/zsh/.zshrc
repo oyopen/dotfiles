@@ -7,3 +7,4 @@ alias vim="nvim"
 eval "$(sheldon source)"
 # Starship
 eval "$(starship init zsh)"
+eval "$(mise activate zsh)"
