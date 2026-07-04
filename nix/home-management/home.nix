@@ -35,9 +35,7 @@
     mise
     neovim
     nixfmt
-    nodejs
     postgresql
-    python3
     ripgrep
     sheldon
     sqlite
