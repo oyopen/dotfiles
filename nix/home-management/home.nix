@@ -47,6 +47,10 @@
     source = ../../config/zsh/.zshrc;
   };
 
+  home.file.".zprofile" = {
+    source = ../../config/zsh/.zprofile;
+  };
+
   imports = [
     ./tmux.nix
   ];
