@@ -1,10 +1,15 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "hikaru";
-  home.homeDirectory = "/Users/hikaru";
+  home.username = username;
+  home.homeDirectory = "/Users/${username}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -36,6 +41,7 @@
     sheldon
     sqlite
     tree
+    zsh
   ];
 
   home.file.".config/sheldon" = {
