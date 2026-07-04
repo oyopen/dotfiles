@@ -8,10 +8,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-drawin = {
+        url = "github:nix-darwin/nix-darwin";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
   };
 
-  outputs =
-    { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nix-darwin, ... }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -31,5 +34,9 @@
         # Work
         "iwasa" = mkHome "iwasa";
       };
+
+      darwinConfigurations."oyopen-mbp" = nix-darwin.lib.darwinSystem {
+          modules = [ ./nix-darwin/configuration.nix ];
+        };
     };
 }
