@@ -22,7 +22,7 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./nix/home.nix ];
+        modules = [ ./home-management/home.nix ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
