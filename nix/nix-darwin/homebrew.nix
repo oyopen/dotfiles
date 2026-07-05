@@ -25,6 +25,7 @@
       "slack-cli"
       "soundsource"
       "zed"
+      "1password"
     ];
   };
 }
