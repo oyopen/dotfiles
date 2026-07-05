@@ -1,0 +1,30 @@
+version: "3"
+
+includes:
+  nix:
+    taskfile: ./nix/Taskfile.yml
+    dir: .
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+    silent: true
+
+  setup:
+    desc: Bootstrap from scratch (install Nix + backup + rebuild)
+    cmds:
+      - task: install-nix
+      - task: backup
+      - task: nix:rebuild
+
+  install-nix:
+    desc: Install Nix via nix-installer
+    cmds:
+      - ./scripts/install-nix.sh
+
+  backup:
+    desc: Backup existing config files before rebuild
+    cmds:
+      - ./scripts/backup.sh
