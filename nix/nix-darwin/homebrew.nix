@@ -15,6 +15,7 @@
     onActivation.cleanup = "uninstall";
     casks = [
       "arc"
+      "font-code-new-roman-nerd-font"
       "ghostty"
       "karabiner-elements"
       "postman"
