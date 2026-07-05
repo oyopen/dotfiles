@@ -1,0 +1,40 @@
+version: "3"
+
+vars:
+  HOSTNAME:
+    sh: scutil --get LocalHostName 2>/dev/null || hostname -s
+  FLAKE_HOST:
+    sh: |
+      case "{{.HOSTNAME}}" in
+        *oyopen*|*hikaru*) echo "oyopen-mbp" ;;
+        *)                 echo "work-mbp" ;;
+      esac
+  FLAKE_REF: "{{.ROOT_DIR}}/nix#{{.FLAKE_HOST}}"
+
+tasks:
+  rebuild:
+    desc: Run nix-darwin rebuild
+    cmds:
+      - sudo darwin-rebuild switch --flake {{.FLAKE_REF}}
+
+  update:
+    desc: Update flake inputs and rebuild
+    cmds:
+      - nix flake update --flake {{.ROOT_DIR}}/nix
+      - task: rebuild
+
+  gc:
+    desc: Garbage collect old Nix generations
+    cmds:
+      - nix-collect-garbage -d
+
+  fmt:
+    desc: Format Nix files
+    cmds:
+      - nix fmt {{.ROOT_DIR}}/nix
+
+  info:
+    desc: Show current host configuration
+    cmds:
+      - echo "Hostname {{.HOSTNAME}}"
+      - echo "Flake    {{.FLAKE_HOST}}"
