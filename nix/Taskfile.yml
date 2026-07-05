@@ -30,8 +30,9 @@ tasks:
 
   fmt:
     desc: Format Nix files
+    dir: "{{.ROOT_DIR}}/nix"
     cmds:
-      - nix fmt {{.ROOT_DIR}}/nix
+      - nix fmt .
 
   info:
     desc: Show current host configuration

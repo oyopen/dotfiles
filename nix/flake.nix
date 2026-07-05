@@ -14,7 +14,14 @@
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
-  outputs = { nixpkgs, home-manager, nix-darwin, nix-homebrew, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nix-darwin,
+      nix-homebrew,
+      ...
+    }:
     let
       mkDarwin =
         username:
@@ -32,6 +39,8 @@
         };
     in
     {
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
+
       darwinConfigurations = {
         "oyopen-mbp" = mkDarwin "hikaru";
         "work-mbp" = mkDarwin "iwasa";
