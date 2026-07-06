@@ -44,6 +44,9 @@
 
       # reload config
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
+      
+      # status bar positiont
+      set-option -g status-position top
 
       # catppuccin
       set -g @catppuccin_flavor "mocha"
