@@ -10,16 +10,16 @@ background-blur-radius = 100
 font-family = CodeNewRoman Nerd Font Mono
 font-size = 16
 
-# 日本語フォント (Hiragino Sans)
-font-codepoint-map = U+3040-U+309F=Hiragino Sans
-font-codepoint-map = U+30A0-U+30FF=Hiragino Sans
-font-codepoint-map = U+4E00-U+9FFF=Hiragino Sans
-font-codepoint-map = U+3400-U+4DBF=Hiragino Sans
-font-codepoint-map = U+F900-U+FAFF=Hiragino Sans
-font-codepoint-map = U+3000-U+303F=Hiragino Sans
-font-codepoint-map = U+FF00-U+FFEF=Hiragino Sans
-font-codepoint-map = U+2E80-U+2EFF=Hiragino Sans
-font-codepoint-map = U+3200-U+32FF=Hiragino Sans
+# 日本語フォント (Hiragino Sans W5: 少し太め)
+font-codepoint-map = U+3040-U+309F=Hiragino Sans W5
+font-codepoint-map = U+30A0-U+30FF=Hiragino Sans W5
+font-codepoint-map = U+4E00-U+9FFF=Hiragino Sans W5
+font-codepoint-map = U+3400-U+4DBF=Hiragino Sans W5
+font-codepoint-map = U+F900-U+FAFF=Hiragino Sans W5
+font-codepoint-map = U+3000-U+303F=Hiragino Sans W5
+font-codepoint-map = U+FF00-U+FFEF=Hiragino Sans W5
+font-codepoint-map = U+2E80-U+2EFF=Hiragino Sans W5
+font-codepoint-map = U+3200-U+32FF=Hiragino Sans W5
 
 # タイトルバーを透明にしてスッキリさせる
 macos-titlebar-style = transparent
