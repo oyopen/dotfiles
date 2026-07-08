@@ -42,6 +42,10 @@
       bind -T copy-mode-vi v send -X begin-selection
       bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
 
+      # popup (scratch terminal)
+      # 背景を端末デフォルトにして透過を効かせる
+      bind p display-popup -E -s "bg=default" -S "bg=default" -w 80% -h 80% -d "#{pane_current_path}"
+
       # reload config
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
       
