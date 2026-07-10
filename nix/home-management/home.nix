@@ -32,6 +32,7 @@
     gitui
     go-task
     jq
+    lazygit
     mise
     neovim
     nixfmt
