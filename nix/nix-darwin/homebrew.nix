@@ -18,6 +18,8 @@
       "font-code-new-roman-nerd-font"
       "ghostty"
       "karabiner-elements"
+      "notion"
+      "notion-calendar"
       "postman"
       "rancher"
       "raycast"
