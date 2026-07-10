@@ -63,10 +63,12 @@
 
       set -g status-left "#{E:@catppuccin_status_session} "
       set -g status-right-length 100
-      set -g status-right "#{E:@catppuccin_status_cpu}"
+      set -g status-right "#{E:@catppuccin_status_directory}"
+      set -ag status-right "#{E:@catppuccin_status_cpu}"
       set -ag status-right "#{E:@catppuccin_status_battery}"
       set -ag status-right "#{E:@catppuccin_status_date_time}"
       set -g @catppuccin_date_time_text " %m/%d %H:%M"
+      set -g @catppuccin_directory_text " #{pane_current_path}"
 
       # tmux-cpu plugin uses string interpolation on status-right at load time,
       # but catppuccin v2 defers expansion via #{l:...}, so the replacement never happens.
