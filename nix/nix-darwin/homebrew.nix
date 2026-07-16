@@ -29,6 +29,7 @@
       "soundsource"
       "zed"
       "1password"
+      "1password-cli"
     ];
   };
 }
