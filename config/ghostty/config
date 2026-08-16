@@ -10,6 +10,9 @@ background-blur-radius = 100
 font-family = CodeNewRoman Nerd Font Mono
 font-size = 16
 
+# 行間を広げる
+adjust-cell-height = 7.5%
+
 # 日本語フォント (Hiragino Sans W5: 少し太め)
 font-codepoint-map = U+3040-U+309F=Hiragino Sans W5
 font-codepoint-map = U+30A0-U+30FF=Hiragino Sans W5
