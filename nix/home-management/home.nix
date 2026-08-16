@@ -66,9 +66,11 @@
     recursive = true;
   };
 
-  home.file.".config/mise" = {
-    source = ../../config/mise;
-    recursive = true;
+  # miseが config.toml に直接書き込むため、
+  # Nixストアへの読み取り専用リンクではなく、リポジトリ内の実ファイルへの
+  # 書き込み可能なシンボリックリンクにする。
+  home.file.".config/mise/config.toml" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/ghq/github.com/oyopen/dotfiles/config/mise/config.toml";
     force = true;
   };
 
