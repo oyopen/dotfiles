@@ -64,6 +64,7 @@
   home.file.".config/mise" = {
     source = ../../config/mise;
     recursive = true;
+    force = true;
   };
 
   home.file.".config/ghostty" = {
@@ -76,6 +77,7 @@
   # 書き込み可能なシンボリックリンクにする。
   home.file.".config/karabiner/karabiner.json" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/ghq/github.com/oyopen/dotfiles/config/karabiner/karabiner.json";
+    force = true;
   };
 
   imports = [
