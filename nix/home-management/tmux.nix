@@ -26,6 +26,9 @@
       bind - split-window -c "#{pane_current_path}"
       bind | split-window -h -c "#{pane_current_path}"
 
+      # new session with name prompt
+      bind N command-prompt -p "new session name:" "new-session -s '%%'"
+
       # vim-style pane navigation
       bind h select-pane -L
       bind j select-pane -D

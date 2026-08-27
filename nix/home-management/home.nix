@@ -24,6 +24,7 @@
   # environment.
   home.packages = with pkgs; [
     cocoapods
+    comma
     fzf
     gcc
     gh
@@ -31,6 +32,10 @@
     git
     gitui
     go-task
+    (google-cloud-sdk.withExtraComponents [
+      google-cloud-sdk.components.kubectl
+      google-cloud-sdk.components.gke-gcloud-auth-plugin
+    ])
     jq
     mise
     neovim
