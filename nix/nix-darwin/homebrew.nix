@@ -14,7 +14,6 @@
     enable = true;
     onActivation.cleanup = "uninstall";
     casks = [
-      "arc"
       "thebrowsercompany-dia"
       "font-code-new-roman-nerd-font"
       "ghostty"
