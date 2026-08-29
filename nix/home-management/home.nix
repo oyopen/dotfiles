@@ -74,6 +74,11 @@
     force = true;
   };
 
+  home.file.".config/gitui" = {
+    source = ../../config/gitui;
+    recursive = true;
+  };
+
   home.file.".config/ghostty" = {
     source = ../../config/ghostty;
     recursive = true;
