@@ -18,6 +18,7 @@
       "thebrowsercompany-dia"
       "font-code-new-roman-nerd-font"
       "ghostty"
+      "gitify"
       "karabiner-elements"
       "meetingbar"
       "notion"
