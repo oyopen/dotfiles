@@ -1,8 +1,8 @@
 # テーマ
-theme = TokyoNight Night
+theme = Kanagawa Wave
 
 # 背景を透過
-background-opacity = 0.9
+background-opacity = 0.95
 # ブラー
 background-blur-radius = 100
 
