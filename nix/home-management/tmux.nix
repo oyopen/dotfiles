@@ -55,7 +55,7 @@
       # status bar positiont
       set-option -g status-position top
 
-      # catppuccin
+      # catppuccin (配色は plugins 側で Kanagawa Wave に差し替え済み)
       set -g @catppuccin_flavor "mocha"
       set -g @catppuccin_status_background "none"
 
@@ -96,7 +96,41 @@
       battery
       {
         plugin = catppuccin;
-        extraConfig = "";
+        # Kanagawa Wave のパレットで catppuccin の @thm_* を上書きする。
+        # catppuccin 側は set -ogq (既存値があれば上書きしない) なので、
+        # 先に値を入れておけばテーマ色を丸ごと差し替えられる。
+        # home-manager は plugins の extraConfig を run-shell の直前に出力する。
+        # programs.tmux.extraConfig は run-shell より後なので、そちらでは間に合わない。
+        extraConfig = ''
+          set -g @thm_bg "#1f1f28"
+          set -g @thm_fg "#dcd7ba"
+
+          set -g @thm_rosewater "#c8c093"
+          set -g @thm_flamingo "#d27e99"
+          set -g @thm_pink "#d27e99"
+          set -g @thm_mauve "#957fb8"
+          set -g @thm_red "#ff5d62"
+          set -g @thm_maroon "#c34043"
+          set -g @thm_peach "#ffa066"
+          set -g @thm_yellow "#e6c384"
+          set -g @thm_green "#98bb6c"
+          set -g @thm_teal "#7aa89f"
+          set -g @thm_sky "#a3d4d5"
+          set -g @thm_sapphire "#7fb4ca"
+          set -g @thm_blue "#7e9cd8"
+          set -g @thm_lavender "#9cabca"
+
+          set -g @thm_subtext_1 "#c8c093"
+          set -g @thm_subtext_0 "#dcd7ba"
+          set -g @thm_overlay_2 "#938aa9"
+          set -g @thm_overlay_1 "#727169"
+          set -g @thm_overlay_0 "#54546d"
+          set -g @thm_surface_2 "#54546d"
+          set -g @thm_surface_1 "#363646"
+          set -g @thm_surface_0 "#2a2a37"
+          set -g @thm_mantle "#181820"
+          set -g @thm_crust "#16161d"
+        '';
       }
     ];
   };
