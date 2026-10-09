@@ -28,4 +28,6 @@ github = "zsh-users/zsh-syntax-highlighting"
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
 
-
+[plugins.zeno]
+github = "yuki-yano/zeno.zsh"
+use = ["zeno-plugin.zsh"]
