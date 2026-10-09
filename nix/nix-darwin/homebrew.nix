@@ -31,6 +31,7 @@
       "slack-cli"
       "soundsource"
       "tableplus"
+      "typora"
       "zed"
       "1password"
       "1password-cli"
