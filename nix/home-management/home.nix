@@ -25,6 +25,7 @@
   home.packages = with pkgs; [
     cocoapods
     comma
+    deno
     fzf
     gcc
     gh
