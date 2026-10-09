@@ -14,6 +14,8 @@
     enable = true;
     onActivation.cleanup = "uninstall";
     casks = [
+      "atok"
+      "datagrip"
       "thebrowsercompany-dia"
       "font-code-new-roman-nerd-font"
       "ghostty"
