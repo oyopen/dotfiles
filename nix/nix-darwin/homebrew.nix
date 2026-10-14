@@ -34,6 +34,7 @@
       "slack"
       "slack-cli"
       "soundsource"
+      "session-manager-plugin"
       "tableplus"
       "typora"
       "zed"
