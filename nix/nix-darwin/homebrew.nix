@@ -15,6 +15,8 @@
     onActivation.cleanup = "uninstall";
     casks = [
       "atok"
+      "chatgpt"
+      "claude"
       "datagrip"
       "thebrowsercompany-dia"
       "font-code-new-roman-nerd-font"
