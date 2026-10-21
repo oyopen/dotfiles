@@ -24,7 +24,11 @@
     }:
     let
       mkDarwin =
-        username:
+        {
+          username,
+          extraHomebrewCasks ? [ ],
+          extraNixPackages ? (_: [ ]),
+        }:
         nix-darwin.lib.darwinSystem {
           modules = [
             ./nix-darwin/configuration.nix
@@ -34,7 +38,7 @@
             ./nix-darwin/homebrew.nix
           ];
           specialArgs = {
-            inherit username;
+            inherit username extraHomebrewCasks extraNixPackages;
           };
         };
     in
@@ -42,8 +46,18 @@
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
 
       darwinConfigurations = {
-        "oyopen-mbp" = mkDarwin "hikaru";
-        "work-mbp" = mkDarwin "iwasa";
+        "oyopen-mbp" = mkDarwin {
+          username = "hikaru";
+          extraHomebrewCasks = [
+            "kicad"
+          ];
+          extraNixPackages = pkgs: with pkgs; [ ];
+        };
+        "work-mbp" = mkDarwin {
+          username = "iwasa";
+          extraHomebrewCasks = [ ];
+          extraNixPackages = pkgs: with pkgs; [ ];
+        };
       };
     };
 }

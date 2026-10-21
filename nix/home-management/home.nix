@@ -1,5 +1,6 @@
 {
   config,
+  extraNixPackages,
   pkgs,
   username,
   ...
@@ -22,32 +23,34 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    cocoapods
-    comma
-    deno
-    fzf
-    gcc
-    gh
-    ghq
-    git
-    gitui
-    go-task
-    (google-cloud-sdk.withExtraComponents [
-      google-cloud-sdk.components.kubectl
-      google-cloud-sdk.components.gke-gcloud-auth-plugin
+  home.packages =
+    (with pkgs; [
+      cocoapods
+      comma
+      deno
+      fzf
+      gcc
+      gh
+      ghq
+      git
+      gitui
+      go-task
+      (google-cloud-sdk.withExtraComponents [
+        google-cloud-sdk.components.kubectl
+        google-cloud-sdk.components.gke-gcloud-auth-plugin
+      ])
+      jq
+      mise
+      neovim
+      nixfmt
+      postgresql
+      ripgrep
+      sheldon
+      sqlite
+      tree
+      zsh
     ])
-    jq
-    mise
-    neovim
-    nixfmt
-    postgresql
-    ripgrep
-    sheldon
-    sqlite
-    tree
-    zsh
-  ];
+    ++ extraNixPackages pkgs;
 
   home.file.".config/sheldon" = {
     source = ../../config/sheldon;
