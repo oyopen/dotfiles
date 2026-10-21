@@ -1,4 +1,5 @@
 {
+  extraHomebrewCasks,
   username,
   ...
 }:
@@ -40,6 +41,7 @@
       "zed"
       "1password"
       "1password-cli"
-    ];
+    ]
+    ++ extraHomebrewCasks;
   };
 }
