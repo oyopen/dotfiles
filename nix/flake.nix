@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    herdr.url = "github:herdrdev/herdr/v0.9.3";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       home-manager,
       nix-darwin,
       nix-homebrew,
+      herdr,
       ...
     }:
     let
@@ -38,7 +40,12 @@
             ./nix-darwin/homebrew.nix
           ];
           specialArgs = {
-            inherit username extraHomebrewCasks extraNixPackages;
+            inherit
+              username
+              extraHomebrewCasks
+              extraNixPackages
+              herdr
+              ;
           };
         };
     in

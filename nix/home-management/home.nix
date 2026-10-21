@@ -3,6 +3,7 @@
   extraNixPackages,
   pkgs,
   username,
+  herdr,
   ...
 }:
 
@@ -35,6 +36,7 @@
       git
       gitui
       go-task
+      herdr.packages.${pkgs.system}.default
       (google-cloud-sdk.withExtraComponents [
         google-cloud-sdk.components.kubectl
         google-cloud-sdk.components.gke-gcloud-auth-plugin
