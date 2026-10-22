@@ -17,3 +17,7 @@ fi
 # Starship
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
+
+# direnv
+eval "$(direnv hook zsh)"
+
