@@ -28,6 +28,7 @@
     (with pkgs; [
       cocoapods
       comma
+      curl
       deno
       fzf
       gcc
