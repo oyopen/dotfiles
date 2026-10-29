@@ -33,6 +33,7 @@
         }:
         nix-darwin.lib.darwinSystem {
           modules = [
+            { nixpkgs.overlays = [ (import ./overlays/ollama-mlx.nix) ]; }
             ./nix-darwin/configuration.nix
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
@@ -58,7 +59,7 @@
           extraHomebrewCasks = [
             "kicad"
           ];
-          extraNixPackages = pkgs: with pkgs; [ ];
+          extraNixPackages = pkgs: with pkgs; [ ollama ];
         };
         "work-mbp" = mkDarwin {
           username = "iwasa";
