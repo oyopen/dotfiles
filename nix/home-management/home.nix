@@ -4,6 +4,7 @@
   pkgs,
   username,
   herdr,
+  mise,
   ...
 }:
 
@@ -43,7 +44,7 @@
         google-cloud-sdk.components.gke-gcloud-auth-plugin
       ])
       jq
-      mise
+      mise.packages.${pkgs.system}.mise
       neovim
       nixfmt
       postgresql

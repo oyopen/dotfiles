@@ -23,6 +23,12 @@ tasks:
       - nix flake update --flake {{.ROOT_DIR}}/nix
       - task: rebuild
 
+  update-mise:
+    desc: Update mise from its latest upstream source and rebuild
+    cmds:
+      - nix flake update mise --flake {{.ROOT_DIR}}/nix
+      - task: rebuild
+
   gc:
     desc: Garbage collect old Nix generations
     cmds:

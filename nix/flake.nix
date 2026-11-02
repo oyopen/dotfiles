@@ -13,6 +13,10 @@
     };
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     herdr.url = "github:herdrdev/herdr/v0.9.3";
+    mise = {
+      url = "github:jdx/mise";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -22,6 +26,7 @@
       nix-darwin,
       nix-homebrew,
       herdr,
+      mise,
       ...
     }:
     let
@@ -46,6 +51,7 @@
               extraHomebrewCasks
               extraNixPackages
               herdr
+              mise
               ;
           };
         };
