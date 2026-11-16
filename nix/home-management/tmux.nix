@@ -55,30 +55,13 @@
       # status bar positiont
       set-option -g status-position top
 
-      # catppuccin (配色は plugins 側で Kanagawa Wave に差し替え済み)
-      set -g @catppuccin_flavor "mocha"
-      set -g @catppuccin_status_background "none"
-
-      set -g @catppuccin_window_text " #W"
-      set -g @catppuccin_window_current_text " #W"
-      set -g @catppuccin_window_flags "icon"
-      set -g @catppuccin_window_current_fill "all"
-
+      # Catppuccin が生成したモジュールをプラグイン読み込み後に配置する
       set -g status-left "#{E:@catppuccin_status_session} "
       set -g status-right-length 100
       set -g status-right "#{E:@catppuccin_status_directory}"
       set -ag status-right "#{E:@catppuccin_status_cpu}"
       set -ag status-right "#{E:@catppuccin_status_battery}"
       set -ag status-right "#{E:@catppuccin_status_date_time}"
-      set -g @catppuccin_date_time_text " %m/%d %H:%M"
-      set -g @catppuccin_directory_text " #{pane_current_path}"
-
-      # tmux-cpu plugin uses string interpolation on status-right at load time,
-      # but catppuccin v2 defers expansion via #{l:...}, so the replacement never happens.
-      # Override with direct script paths so catppuccin can call them at display time.
-      set -g @catppuccin_cpu_text " #(${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/scripts/cpu_percentage.sh)"
-      set -g @catppuccin_battery_text " #(${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/scripts/battery_percentage.sh)"
-      set -g @catppuccin_battery_icon "#(${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/scripts/battery_icon.sh) "
 
       # resurrect / continuum
       set -g @resurrect-capture-pane-contents 'on'
@@ -96,12 +79,30 @@
       battery
       {
         plugin = catppuccin;
+        # Catppuccin は読み込み時の設定でタブやアイコンの表示書式を生成する。
+        # Home Manager はこの extraConfig を run-shell の直前に出力するため、
+        # @catppuccin_* は programs.tmux.extraConfig ではなく、ここで設定する。
         # Kanagawa Wave のパレットで catppuccin の @thm_* を上書きする。
         # catppuccin 側は set -ogq (既存値があれば上書きしない) なので、
         # 先に値を入れておけばテーマ色を丸ごと差し替えられる。
-        # home-manager は plugins の extraConfig を run-shell の直前に出力する。
-        # programs.tmux.extraConfig は run-shell より後なので、そちらでは間に合わない。
         extraConfig = ''
+          set -g @catppuccin_flavor "mocha"
+          set -g @catppuccin_status_background "none"
+
+          set -g @catppuccin_window_text " #W"
+          set -g @catppuccin_window_current_text " #W"
+          set -g @catppuccin_window_flags "icon"
+
+          set -g @catppuccin_date_time_text " %m/%d %H:%M"
+          set -g @catppuccin_directory_text " #{pane_current_path}"
+
+          # tmux-cpu plugin uses string interpolation on status-right at load time,
+          # but catppuccin v2 defers expansion via #{l:...}, so the replacement never happens.
+          # Override with direct script paths so catppuccin can call them at display time.
+          set -g @catppuccin_cpu_text " #(${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/scripts/cpu_percentage.sh)"
+          set -g @catppuccin_battery_text " #(${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/scripts/battery_percentage.sh)"
+          set -g @catppuccin_battery_icon "#(${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/scripts/battery_icon.sh) "
+
           set -g @thm_bg "#1f1f28"
           set -g @thm_fg "#dcd7ba"
 
