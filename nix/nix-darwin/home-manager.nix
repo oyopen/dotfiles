@@ -2,7 +2,6 @@
   extraNixPackages,
   username,
   herdr,
-  mise,
   ...
 }:
 {
@@ -11,7 +10,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = {
-    inherit username extraNixPackages herdr mise;
+    inherit username extraNixPackages herdr;
   };
   home-manager.users.${username} = ../home-management/home.nix;
 }

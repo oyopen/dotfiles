@@ -12,7 +12,10 @@ echo "==> dotfiles bootstrap"
 # 2. 既存の設定ファイルをバックアップ
 "${DOTFILES_DIR}/scripts/backup.sh"
 
-# 3. nix-darwin で構築
+# 3. mise の公式バイナリをインストール
+"${DOTFILES_DIR}/scripts/install-mise.sh"
+
+# 4. nix-darwin で構築
 HOSTNAME=$(scutil --get LocalHostName 2>/dev/null || hostname -s)
 case "$HOSTNAME" in
     *oyopen*|*hikaru*) FLAKE_HOST="oyopen-mbp" ;;

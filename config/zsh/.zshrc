@@ -16,7 +16,11 @@ fi
 
 # Starship
 eval "$(starship init zsh)"
-eval "$(mise activate zsh)"
+
+# mise (official release binary, updated with task update-mise)
+if [[ -x "$HOME/.local/bin/mise" ]]; then
+  eval "$("$HOME/.local/bin/mise" activate zsh)"
+fi
 
 # direnv
 eval "$(direnv hook zsh)"

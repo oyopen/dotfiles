@@ -6,3 +6,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export PATH="$PATH:$HOME/.lmstudio/bin"
 export PATH="$HOME/.rd/bin:$PATH"
+
+# Official mise binary and other user-installed commands
+export PATH="$HOME/.local/bin:$PATH"

@@ -13,16 +13,28 @@ tasks:
     silent: true
 
   setup:
-    desc: Bootstrap from scratch (install Nix + backup + rebuild)
+    desc: Bootstrap from scratch (install Nix + mise + backup + rebuild)
     cmds:
       - task: install-nix
       - task: backup
+      - task: install-mise
       - task: nix:rebuild
 
   install-nix:
     desc: Install Nix via nix-installer
     cmds:
       - ./scripts/install-nix.sh
+
+  install-mise:
+    desc: Install the official mise binary if missing
+    cmds:
+      - ./scripts/install-mise.sh
+
+  update-mise:
+    desc: Update the official mise binary independently of Nix
+    cmds:
+      - task: install-mise
+      - '"$HOME/.local/bin/mise" self-update --yes --no-plugins'
 
   backup:
     desc: Backup existing config files before rebuild

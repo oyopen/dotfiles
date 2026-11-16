@@ -4,7 +4,6 @@
   pkgs,
   username,
   herdr,
-  mise,
   ...
 }:
 
@@ -38,13 +37,12 @@
       git
       gitui
       go-task
-      herdr.packages.${pkgs.system}.default
+      herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
       (google-cloud-sdk.withExtraComponents [
         google-cloud-sdk.components.kubectl
         google-cloud-sdk.components.gke-gcloud-auth-plugin
       ])
       jq
-      mise.packages.${pkgs.system}.mise
       neovim
       nixfmt
       postgresql
