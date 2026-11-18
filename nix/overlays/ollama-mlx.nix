@@ -70,7 +70,7 @@ in
 {
   ollama =
     assert final.lib.assertMsg (
-      prev.ollama.version == "0.40.4"
+      prev.ollama.version == "0.40.16"
     ) "ollama-mlx overlay must be updated for Ollama ${prev.ollama.version}";
     prev.ollama.overrideAttrs (oldAttrs: {
       nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ final.zsh ];
