@@ -4,15 +4,15 @@ let
   mlxSource = final.fetchFromGitHub {
     owner = "ml-explore";
     repo = "mlx";
-    rev = "97029597882f674a596958bc71fdec3213ccc192";
-    hash = "sha256-Kx/yxfnPHeLzktsxfTAuVNzhWmfuibkRMY2HJRomiAs=";
+    rev = "54a70511f4ea151378d03b657a4fdd823386ea38";
+    hash = "sha256-+2AEtroWcloLa04hbCreMU1R0TtjgqDST1pYDkmKVLw=";
   };
 
   mlxCSource = final.fetchFromGitHub {
     owner = "ml-explore";
     repo = "mlx-c";
-    rev = "a341b4925024b88b2c593468f16e12f5e17315da";
-    hash = "sha256-OJobebuECqdNdXgwZQh9fSQNt5FJzg7RnFFwj5x/Lhg=";
+    rev = "57731b00e8bed710e0750e7356da9f18f8eb3e20";
+    hash = "sha256-LOtzOtYFeUc1rfE0CyA4oaPnLC0qtZG0AVxhHQFScUA=";
   };
 
   xgrammarSource = final.fetchFromGitHub {
