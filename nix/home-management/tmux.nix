@@ -82,7 +82,7 @@
         # Catppuccin は読み込み時の設定でタブやアイコンの表示書式を生成する。
         # Home Manager はこの extraConfig を run-shell の直前に出力するため、
         # @catppuccin_* は programs.tmux.extraConfig ではなく、ここで設定する。
-        # Kanagawa Wave のパレットで catppuccin の @thm_* を上書きする。
+        # TokyoNight Night のパレットで catppuccin の @thm_* を上書きする。
         # catppuccin 側は set -ogq (既存値があれば上書きしない) なので、
         # 先に値を入れておけばテーマ色を丸ごと差し替えられる。
         extraConfig = ''
@@ -103,34 +103,34 @@
           set -g @catppuccin_battery_text " #(${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/scripts/battery_percentage.sh)"
           set -g @catppuccin_battery_icon "#(${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/scripts/battery_icon.sh) "
 
-          set -g @thm_bg "#1f1f28"
-          set -g @thm_fg "#dcd7ba"
+          set -g @thm_bg "#1a1b26"
+          set -g @thm_fg "#c0caf5"
 
-          set -g @thm_rosewater "#c8c093"
-          set -g @thm_flamingo "#d27e99"
-          set -g @thm_pink "#d27e99"
-          set -g @thm_mauve "#957fb8"
-          set -g @thm_red "#ff5d62"
-          set -g @thm_maroon "#c34043"
-          set -g @thm_peach "#ffa066"
-          set -g @thm_yellow "#e6c384"
-          set -g @thm_green "#98bb6c"
-          set -g @thm_teal "#7aa89f"
-          set -g @thm_sky "#a3d4d5"
-          set -g @thm_sapphire "#7fb4ca"
-          set -g @thm_blue "#7e9cd8"
-          set -g @thm_lavender "#9cabca"
+          set -g @thm_rosewater "#b4f9f8"
+          set -g @thm_flamingo "#f7768e"
+          set -g @thm_pink "#ff007c"
+          set -g @thm_mauve "#bb9af7"
+          set -g @thm_red "#f7768e"
+          set -g @thm_maroon "#db4b4b"
+          set -g @thm_peach "#ff9e64"
+          set -g @thm_yellow "#e0af68"
+          set -g @thm_green "#9ece6a"
+          set -g @thm_teal "#73daca"
+          set -g @thm_sky "#89ddff"
+          set -g @thm_sapphire "#7dcfff"
+          set -g @thm_blue "#7aa2f7"
+          set -g @thm_lavender "#9d7cd8"
 
-          set -g @thm_subtext_1 "#c8c093"
-          set -g @thm_subtext_0 "#dcd7ba"
-          set -g @thm_overlay_2 "#938aa9"
-          set -g @thm_overlay_1 "#727169"
-          set -g @thm_overlay_0 "#54546d"
-          set -g @thm_surface_2 "#54546d"
-          set -g @thm_surface_1 "#363646"
-          set -g @thm_surface_0 "#2a2a37"
-          set -g @thm_mantle "#181820"
-          set -g @thm_crust "#16161d"
+          set -g @thm_subtext_1 "#a9b1d6"
+          set -g @thm_subtext_0 "#c0caf5"
+          set -g @thm_overlay_2 "#737aa2"
+          set -g @thm_overlay_1 "#565f89"
+          set -g @thm_overlay_0 "#414868"
+          set -g @thm_surface_2 "#414868"
+          set -g @thm_surface_1 "#3b4261"
+          set -g @thm_surface_0 "#292e42"
+          set -g @thm_mantle "#16161e"
+          set -g @thm_crust "#16161e"
         '';
       }
     ];

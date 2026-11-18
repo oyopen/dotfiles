@@ -1,31 +1,21 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
+    "folke/tokyonight.nvim",
     lazy = true,
     priority = 1000,
     opts = {
-      theme = "wave",
-      background = {
-        dark = "wave",
-        light = "lotus",
-      },
+      style = "night",
+      light_style = "day",
       -- ghostty の background-opacity を活かすため背景を抜く
       transparent = true,
-      colors = {
-        theme = {
-          all = {
-            ui = {
-              bg_gutter = "none",
-            },
-          },
-        },
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
       },
-      overrides = function()
-        return {
-          NormalFloat = { bg = "none" },
-          FloatBorder = { bg = "none" },
-          FloatTitle = { bg = "none" },
-        }
+      on_highlights = function(hl)
+        hl.NormalFloat = { bg = "NONE" }
+        hl.FloatBorder = { bg = "NONE" }
+        hl.FloatTitle = { bg = "NONE" }
       end,
     },
   },
@@ -33,7 +23,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "tokyonight",
     },
   },
 }
