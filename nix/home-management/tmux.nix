@@ -46,8 +46,16 @@
       bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
 
       # popup (scratch terminal)
+      # prefix + p で開閉。呼び出し元のセッションIDごとに作業状態を保持する。
       # 背景を端末デフォルトにして透過を効かせる
-      bind p display-popup -E -s "bg=default" -S "bg=default" -w 80% -h 80% -d "#{pane_current_path}"
+      bind p if-shell -F '#{m:popup-$*,#{session_name}}' {
+        detach-client
+      } {
+        # run-shell で引数の format を展開。qh;q で # とシェル特殊文字を保護する。
+        run-shell -b '${pkgs.tmux}/bin/tmux -S #{q:socket_path} display-popup -c #{q:client_name} \
+          -E -e TMUX= -s bg=default -S bg=default -w 80% -h 80% -d #{qh;q:pane_current_path} \
+          ${pkgs.tmux}/bin/tmux -S #{q:socket_path} new-session -A -s popup-#{q:session_id} -c #{qh;q:pane_current_path}'
+      }
 
       # reload config
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
